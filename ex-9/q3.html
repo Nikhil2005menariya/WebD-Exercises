@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body style="text-align: center;">
+    <h1>BMI Calculator</h1>
+
+    <form id="bmiForm">
+        Gender:
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+
+        Enter Your Weight (in pounds): 
+        <input type="number" id="weight"><br><br>
+
+        Enter Your Height:<br> 
+        Feet: 
+        <input type="number" id="heightFeet"><br> 
+        Inches: 
+        <input type="number" id="heightInches"><br><br>
+
+        <button type="button" onclick="calculateBMI()">Calculate</button><br><br>
+
+        YOUR BMI:
+        <input type="text" id="bmiResult" readonly><br><br>
+
+    </form>
+
+    <script>
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightFeet = parseFloat(document.getElementById('heightFeet').value);
+            const heightInches = parseFloat(document.getElementById('heightInches').value);
+            
+            const gender = document.getElementById('gender').value;
+
+            const totalHeightInches = (heightFeet * 12) + heightInches;
+            
+            const bmi = Math.round((703 * weight) / Math.pow(totalHeightInches, 2));
+            
+            document.getElementById('bmiResult').value = bmi;
+
+            let status;
+
+            if (gender === "male") {
+                if (bmi <= 20.7) status = "Underweight";
+                else if (bmi <= 26.4) status = "Ideal Range";
+                else if (bmi <= 27.8) status = "Marginally Overweight";
+                else if (bmi <= 31.10) status = "Overweight";
+                else status = "Very Overweight or Obese";
+            } else { // Female
+                if (bmi <= 17.5) status = "Underweight";
+                else if (bmi <= 25.5) status = "Ideal Range";
+                else if (bmi <= 27.3) status = "Marginally Overweight";
+                else if (bmi <= 32.3) status = "Overweight";
+                else status = "Very Overweight or Obese";
+            }
+
+            alert(`Your BMI is ${bmi}. Status: ${status}`);
+        }
+    </script>
+</body>
+</html>

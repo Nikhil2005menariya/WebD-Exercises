@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grocery Order Form</title>
+  <style>
+    body {
+      background-color: #9AA288;
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+    .form-container {
+      background-color: #ADB395;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      color: #fff;
+    }
+    .product {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    input[type="text"], input[type="email"], input[type="number"] {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #B28B57;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Grocery Order Form</h2>
+    <form id="orderForm">
+      <label>Customer Name:</label>
+      <input type="text" id="name" required>
+
+      <label>Phone Number:</label>
+      <input type="text" id="phone" required>
+
+      <label>Email:</label>
+      <input type="email" id="email" required>
+
+      <h3>Products</h3>
+
+      <div class="product">
+        <input type="checkbox" id="apple">
+        <label for="apple">Apple ($10/kg)</label>
+        <input type="number" id="appleQty" min="0" placeholder="kg">
+      </div>
+
+      <div class="product">
+        <input type="checkbox" id="banana">
+        <label for="banana">Banana ($5/kg)</label>
+        <input type="number" id="bananaQty" min="0" placeholder="kg">
+      </div>
+
+      <div class="product">
+        <input type="checkbox" id="avocado">
+        <label for="avocado">Avocado ($7/kg)</label>
+        <input type="number" id="avocadoQty" min="0" placeholder="kg">
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        products: []
+      };
+
+      const products = [
+        { id: "apple", name: "Apple", price: 10 },
+        { id: "banana", name: "Banana", price: 5 },
+        { id: "avocado", name: "Avocado", price: 7 }
+      ];
+
+      products.forEach(product => {
+        const checked = document.getElementById(product.id).checked;
+        const qty = parseFloat(document.getElementById(product.id + "Qty").value) || 0;
+        if (checked && qty > 0) {
+          data.products.push({ name: product.name, qty: qty, price: product.price });
+        }
+      });
+
+      localStorage.setItem("orderData", JSON.stringify(data));
+      window.location.href = "receipt.html";
+    });
+  </script>
+</body>
+</html>

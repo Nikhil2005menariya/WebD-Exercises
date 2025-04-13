@@ -1,0 +1,61 @@
+/* General Body Styling */
+body {
+    background-color: #a3d8f4; /* Light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Calculator Styling */
+.calculator {
+    background-color: #d3eafd; /* Calculator background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate; /* Ensures gaps between buttons */
+    border-spacing: 8px; /* Adds gaps between buttons */
+}
+
+table td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Display Styling */
+.display {
+    height: 60px;
+    background-color: #b0c4de; /* Display area color */
+    border-radius: 5px;
+}
+
+/* Button Styling */
+.clear {
+    background-color: #ff6f61; /* Red color for clear button */
+}
+
+.operator {
+    background-color: #f9c2c2; /* Light pink for operators */
+}
+
+.highlight {
+    background-color: #a3c9f7; /* Blue highlight for number '1' */
+}
+
+.equal {
+    background-color: #f9f871; /* Yellow color for equal button */
+}
+
+table td:hover {
+    transform: scale(1.1); /* Slight scaling effect on hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+}

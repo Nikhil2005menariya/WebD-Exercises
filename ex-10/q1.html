@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Patient Data Analysis</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Patient Data Analysis</h1>
+
+    <!-- Table to display patient data -->
+    <table id="patientTable">
+        <thead>
+            <tr>
+                <th>P-Id</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Buttons for actions -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="sortDescending()">Sort by Age (Descending)</button>
+        <button onclick="checkPatientId()">Check P-Id</button>
+        <button onclick="filterByAge()">Filter by Age Range</button>
+    </div>
+
+    <script>
+        // Patient data
+        const patients = [
+            { id: 1, name: "Alen", age: 39 },
+            { id: 2, name: "Deena", age: 47 },
+            { id: 3, name: "Diana", age: 21 },
+            { id: 4, name: "Jack", age: 54 },
+            { id: 5, name: "Jain", age: 23 },
+            { id: 6, name: "Kelvin", age: 61 },
+            { id: 7, name: "Louis", age: 69 },
+            { id: 8, name: "Rex", age: 49 }
+        ];
+
+        // Function to display patient data in the table
+        function displayPatients(data) {
+            const tableBody = document.querySelector("#patientTable tbody");
+            tableBody.innerHTML = "";
+            data.forEach(patient => {
+                const row = `<tr><td>${patient.id}</td><td>${patient.name}</td><td>${patient.age}</td></tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        // Display initial data
+        displayPatients(patients);
+
+        // Sort patients by age in descending order
+        function sortDescending() {
+            const sortedData = [...patients].sort((a, b) => b.age - a.age);
+            displayPatients(sortedData);
+        }
+
+        // Check if a particular P-Id exists
+        function checkPatientId() {
+            const pId = parseInt(prompt("Enter P-Id to check:"), 10);
+            const patient = patients.find(patient => patient.id === pId);
+            if (patient) {
+                alert(`P-Id ${pId} belongs to ${patient.name}, Age ${patient.age}.`);
+            } else {
+                alert(`P-Id ${pId} is not found.`);
+            }
+        }
+
+        // Filter patients by age range
+        function filterByAge() {
+            const minAge = parseInt(prompt("Enter minimum age:"), 10);
+            const maxAge = parseInt(prompt("Enter maximum age:"), 10);
+            const filteredData = patients.filter(patient => patient.age >= minAge && patient.age <= maxAge);
+            displayPatients(filteredData);
+        }
+    </script>
+</body>
+</html>

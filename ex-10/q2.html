@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM Selection Methods</title>
+    <style>
+        .input-field {
+            margin: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- (a) Using getElementById -->
+    <h1 id="title">Original Title</h1>
+
+    <!-- (b) Using getElementsByName -->
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" name="username" class="input-field"><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" value="Male"> Male<br>
+        <input type="radio" name="gender" value="Female"> Female<br>
+        <input type="radio" name="gender" value="Other"> Other<br><br>
+    </form>
+
+    <!-- (c) Using getElementsByTagName -->
+    <p>This is paragraph one.</p>
+    <p>This is paragraph two.</p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <!-- (d) Using getElementsByClassName -->
+    <div class="input-field">Field 1</div>
+    <div class="input-field">Field 2</div>
+
+    <!-- (e) Using querySelector -->
+    <p class="info">This is an informational paragraph.</p>
+
+    <!-- (f) Using querySelectorAll -->
+    <p class="info">Info paragraph 1.</p>
+    <p class="info">Info paragraph 2.</p>
+
+    <form>
+        <label>Hobbies:</label><br>
+        <input type="checkbox" class="hobby" value="Reading"> Reading<br>
+        <input type="checkbox" class="hobby" value="Traveling"> Traveling<br>
+        <input type="checkbox" class="hobby" value="Gaming"> Gaming<br><br>
+    </form>
+
+    <!-- Script for DOM manipulation -->
+    <script src="q2.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Tasks</title>
+  <style>
+    table, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    td {
+      text-align: center;
+    }
+    #colorBtn {
+      background-color: red;
+      color: white;
+      padding: 10px;
+      border: none;
+    }
+    #changeBox {
+      background-color: green;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>JavaScript Tasks</h2>
+
+<!-- Container for all dynamic elements -->
+<div id="container"></div>
+
+<script>
+  const container = document.getElementById('container');
+
+  // (i) Create a dynamic 3x3 table
+  const table = document.createElement('table');
+  for (let i = 0; i < 3; i++) {
+    const row = document.createElement('tr');
+    for (let j = 0; j < 3; j++) {
+      const cell = document.createElement('td');
+      cell.textContent = `R${i + 1}C${j + 1}`;
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  }
+  container.appendChild(table);
+
+  container.appendChild(document.createElement('br'));
+
+  // (ii) Button color change on mouseover (red -> green)
+  const button = document.createElement('button');
+  button.id = "colorBtn";
+  button.textContent = "Hover Me";
+  button.addEventListener('mouseover', () => {
+    button.style.backgroundColor = 'green';
+  });
+  button.addEventListener('mouseout', () => {
+    button.style.backgroundColor = 'red';
+  });
+  container.appendChild(button);
+
+  container.appendChild(document.createElement('br'));
+  container.appendChild(document.createElement('br'));
+
+  // (iii) Textbox color change on focus and greeting on change
+  const inputBox = document.createElement('input');
+  inputBox.type = 'text';
+  inputBox.id = 'changeBox';
+  inputBox.addEventListener('focus', () => {
+    inputBox.style.backgroundColor = 'yellow';
+  });
+  inputBox.addEventListener('change', () => {
+    alert("Hello! You changed the text.");
+  });
+  container.appendChild(inputBox);
+
+  container.appendChild(document.createElement('br'));
+  container.appendChild(document.createElement('br'));
+
+  // (iv) Input + Button to add item to <ul> on double-click
+  const inputField = document.createElement('input');
+  inputField.type = 'text';
+  inputField.placeholder = 'Enter item';
+
+  const addButton = document.createElement('button');
+  addButton.textContent = "Add Item";
+
+  const ul = document.createElement('ul');
+
+  addButton.addEventListener('dblclick', () => {
+    const li = document.createElement('li');
+    li.textContent = inputField.value;
+    ul.appendChild(li);
+    inputField.value = "";
+  });
+
+  container.appendChild(inputField);
+  container.appendChild(addButton);
+  container.appendChild(ul);
+
+  container.appendChild(document.createElement('br'));
+
+  // (v) Key press count display
+  const keyInput = document.createElement('input');
+  keyInput.placeholder = "Type something...";
+
+  const keyCountDisplay = document.createElement('input');
+  keyCountDisplay.readOnly = true;
+
+  let keyCount = 0;
+  keyInput.addEventListener('keydown', () => {
+    keyCount++;
+    keyCountDisplay.value = `Key Pressed: ${keyCount}`;
+  });
+
+  container.appendChild(keyInput);
+  container.appendChild(keyCountDisplay);
+</script>
+
+</body>
+</html>

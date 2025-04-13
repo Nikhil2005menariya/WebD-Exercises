@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pet Animals</title>
+    <link rel="stylesheet" href="pets.css">
+</head>
+<body>
+    <!-- Rainbow Effect Heading -->
+    <h1 class="rainbow">Welcome to the World of Pet Animals!</h1>
+
+    <!-- Multi-column Description -->
+    <div class="description">
+        Pet animals bring joy and companionship to our lives. Dogs are loyal and playful, while cats are independent and loving. Birds, rabbits, and other pets add unique charm to our homes.
+    </div>
+
+    <!-- Background Image -->
+    <div class="background">
+        <p>Pets are more than just animals; they are family members!</p>
+    </div>
+
+    <!-- Animated SVG: Dog Playing with Ball -->
+    <svg width="400" height="200" class="dog-ball">
+        <!-- Dog -->
+        <circle cx="100" cy="100" r="40" fill="#FFD700" />
+        <text x="85" y="105" fill="#000">Dog</text>
+
+        <!-- Ball -->
+        <circle cx="200" cy="100" r="20" fill="#FF4500">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="-50 50" dur="2s" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="2s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="skewX" from="-10" to="10" dur="2s" repeatCount="indefinite"/>
+        </circle>
+    </svg>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Airline Seat Reservation System</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Airline Seat Reservation System</h1>
+
+    <table id="seatTable">
+        <thead>
+            <tr>
+                <th>Seat Number</th>
+                <th>Status</th>
+                <th>Passenger Name</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const seats = Array(10).fill(null); // Initialize seats array with all seats empty
+
+        function updateSeatTable() {
+            const tableBody = document.querySelector('#seatTable tbody');
+            tableBody.innerHTML = '';
+            
+            seats.forEach((seatInfo, index) => {
+                const row = `<tr><td>${index + 1}</td><td>${seatInfo ? 'Occupied' : 'Available'}</td><td>${seatInfo ? seatInfo.name : '-'}</td><td>${seatInfo ? seatInfo.class : '-'}</td></tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function reserveSeat() {
+            const name = prompt("Enter your name:");
+            const choice = parseInt(prompt("Enter seat type (1 for First Class or 2 for Economy):"));
+
+            if (choice === 1) {
+                const firstClassSeat = seats.findIndex((seatInfo, index) => index < 5 && !seatInfo);
+                if (firstClassSeat !== -1) {
+                    seats[firstClassSeat] = { name, class: 'First Class' };
+                    alert(`Seat reserved in First Class. Seat Number: ${firstClassSeat + 1}`);
+                    printTicket(name, firstClassSeat + 1, 'First Class');
+                } else if (confirm("First Class is full. Would you like to book an Economy seat?")) {
+                    reserveEconomy(name);
+                } else {
+                    alert("No seat reserved.");
+                }
+            } else if (choice === 2) {
+                reserveEconomy(name);
+            } else {
+                alert("Invalid choice.");
+            }
+
+            updateSeatTable();
+        }
+
+        function reserveEconomy(name) {
+            const economySeat = seats.findIndex((seatInfo, index) => index >= 5 && !seatInfo);
+            if (economySeat !== -1) {
+                seats[economySeat] = { name, class: 'Economy' };
+                alert(`Seat reserved in Economy. Seat Number: ${economySeat + 1}`);
+                printTicket(name, economySeat + 1, 'Economy');
+            } else if (confirm("Economy is full. Would you like to book a First Class seat?")) {
+                reserveFirstClass(name);
+            } else {
+                alert("No seat reserved.");
+            }
+        }
+
+        function reserveFirstClass(name) {
+            const firstClassSeat = seats.findIndex((seatInfo, index) => index < 5 && !seatInfo);
+            if (firstClassSeat !== -1) {
+                seats[firstClassSeat] = { name, class: 'First Class' };
+                alert(`Seat reserved in First Class. Seat Number: ${firstClassSeat + 1}`);
+                printTicket(name, firstClassSeat + 1, 'First Class');
+            } else {
+                alert("No seat available.");
+            }
+        }
+
+        function printTicket(name, seatNumber, seatClass) {
+            alert(`Boarding Pass\nName: ${name}\nSeat Number: ${seatNumber}\nClass: ${seatClass}`);
+        }
+
+        while (seats.some(seat => !seat)) {
+            reserveSeat();
+        }
+
+        alert("All seats are booked!");
+    </script>
+</body>
+</html>

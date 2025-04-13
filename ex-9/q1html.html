@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Daily Temperature Categorization</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Temperature Categorization</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Temperature (°F)</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody id="temperatureTable"></tbody>
+    </table>
+
+    <script>
+        const temperatures = [55, 62, 68, 74, 59, 45, 41, 58, 60, 67, 65, 78, 82, 88, 91, 92, 90, 93, 87, 80, 78, 79, 72, 68, 61, 59, 55, 65];
+        let hotDays = 0;
+        let pleasantDays = 0;
+        let coldDays = 0;
+
+        const tableBody = document.getElementById('temperatureTable');
+
+        temperatures.forEach(temp => {
+            let category = '';
+            if (temp >= 85) {
+                category = 'Hot';
+                hotDays++;
+            } else if (temp >= 60 && temp <= 84) {
+                category = 'Pleasant';
+                pleasantDays++;
+            } else {
+                category = 'Cold';
+                coldDays++;
+            }
+
+            const row = `<tr><td>${temp}</td><td>${category}</td></tr>`;
+            tableBody.innerHTML += row;
+        });
+
+        console.log(`Hot Days: ${hotDays}`);
+        console.log(`Pleasant Days: ${pleasantDays}`);
+        console.log(`Cold Days: ${coldDays}`);
+    </script>
+</body>
+</html>

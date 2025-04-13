@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+</head>
+<body>
+
+  <form style="width: 300px; border: 1px solid #000; padding: 10px;">
+    <fieldset>
+      <legend><b>Login</b></legend>
+
+      <label>Username*</label><br>
+      <input type="text" required><br><br>
+
+      <label>Password*</label><br>
+      <input type="password" required><br><br>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend><b>Gender*</b></legend>
+      <input type="radio" name="gender" value="male" required> Male
+      <input type="radio" name="gender" value="female"> Female
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend><b>Programming Skill</b></legend>
+      <input type="checkbox" name="skill" value="java"> Java
+      <input type="checkbox" name="skill" value="c++" checked> C++
+      <input type="checkbox" name="skill" value="c#"> C#
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend><b>Fruit</b></legend>
+      <label for="fruit">Choose a fruit:</label>
+      <select name="fruit" id="fruit">
+        <optgroup label="Pome">
+          <option>Apple</option>
+          <option>Pear</option>
+        </optgroup>
+        <optgroup label="Citrus">
+          <option>Orange</option>
+          <option>Grapefruit</option>
+          <option>Mandarin</option>
+          <option>Lime</option>
+        </optgroup>
+        <optgroup label="Stone">
+          <option>Nectarine</option>
+          <option>Apricot</option>
+          <option>Peach</option>
+          <option>Plum</option>
+        </optgroup>
+        <optgroup label="Exotic">
+          <option>Banana</option>
+          <option>Mango</option>
+        </optgroup>
+        <optgroup label="Berries">
+          <option>Strawberry</option>
+          <option>Raspberry</option>
+          <option>Blueberry</option>
+          <option>Kiwifruit</option>
+          <option>Passionfruit</option>
+        </optgroup>
+        <optgroup label="Melons">
+          <option>Watermelon</option>
+          <option>Rockmelon</option>
+          <option>Honeydew</option>
+        </optgroup>
+      </select>
+    </fieldset>
+
+    <br>
+
+    <textarea rows="4" cols="40" placeholder="Enter your comment here"></textarea>
+    <br><br>
+
+    <input type="submit" value="SEND">
+    <input type="reset" value="RESET">
+
+  </form>
+
+</body>
+</html>

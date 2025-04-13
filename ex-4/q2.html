@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume Form</title>
+  <style>
+    fieldset {
+      border: 1px solid gray;
+      width: 600px;
+      margin-bottom: 20px;
+    }
+    legend {
+      font-weight: bold;
+      color: red;
+    }
+    label {
+      display: inline-block;
+      width: 120px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <!-- Personal Details -->
+    <fieldset>
+      <legend>Personal Details</legend>
+
+      <label for="name">Name :</label>
+      <input type="text" id="name" required><br>
+
+      <label for="password">Password :</label>
+      <input type="password" id="password" required><br>
+
+      <label for="email">E-mail id :</label>
+      <input type="email" id="email" required><br>
+
+      <label>Gender :</label>
+      <input type="radio" name="gender" value="male"> Male
+      <input type="radio" name="gender" value="female"> Female<br>
+
+      <label for="dob">DOB :</label>
+      <input type="date" id="dob" required><br>
+
+      <label for="mobile">Mobile# :</label>
+      <input type="tel" id="mobile" pattern="[0-9]{10}" required><br>
+    </fieldset>
+
+    <!-- Educational Qualification -->
+    <fieldset>
+      <legend>Educational Qualification</legend>
+
+      <label for="degree">Degree :</label>
+      <select id="degree" required>
+        <option>-- Select Group --</option>
+        <optgroup label="UG">
+          <option>BE</option>
+          <option>BTech</option>
+          <option>BSc</option>
+          <option>BA</option>
+          <option>BCA</option>
+          <option>BBA</option>
+          <option>Others</option>
+        </optgroup>
+        <optgroup label="PG">
+          <option>ME</option>
+          <option>MTech</option>
+          <option>MSc</option>
+          <option>MA</option>
+          <option>MCA</option>
+          <option>MBA</option>
+          <option>Others</option>
+        </optgroup>
+        <optgroup label="PhD">
+          <option>Engineering</option>
+          <option>Science</option>
+          <option>Management</option>
+          <option>Others</option>
+        </optgroup>
+      </select><br>
+
+      <label for="branch">Engineering :</label>
+      <select id="branch">
+        <option>-- Select Group --</option>
+        <option>CSE</option>
+        <option>ECE</option>
+        <option>EEE</option>
+        <option>CIVIL</option>
+        <option>MECH</option>
+      </select><br>
+
+      <label>Hobbies :</label>
+      <input type="checkbox" value="chess">Playing chess
+      <input type="checkbox" value="reading">Reading Books<br>
+
+      <label for="color">Favourite Color :</label>
+      <input type="color" id="color"><br>
+    </fieldset>
+
+    <!-- Address and Resume -->
+    <label for="address"><b>Address</b></label><br>
+    <textarea rows="4" cols="70" id="address" placeholder="Enter your address here"></textarea><br><br>
+
+    <label>Attach Resume:</label>
+    <input type="file" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>

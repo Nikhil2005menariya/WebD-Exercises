@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>23BCE1162 - Expenses Table</title>
+    <style>
+        #expensesTable {
+            display: none; /* Initially hide the table */
+            background-color: #23BCE116; /* Background color using registration number */
+            text-align: center;
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+        }
+
+        #expensesTable th, #expensesTable td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        #expensesTable th {
+            background-color: lightgray;
+        }
+    </style>
+    <script>
+        function showExpensesTable() {
+            document.getElementById("expensesTable").style.display = "table";
+        }
+    </script>
+</head>
+<body>
+
+<h1><a href="#" onclick="showExpensesTable()">Expenses</a></h1>
+
+<table id="expensesTable">
+    <tr>
+        <th rowspan="2">Year</th>
+        <th rowspan="2">Quarter</th>
+        <th colspan="2">Expenses</th>
+        <th colspan="2">Income</th>
+    </tr>
+    <tr>
+        <th>Quetta</th>
+        <th>Dubai</th>
+        <th>Quetta</th>
+        <th>Dubai</th>
+    </tr>
+    <!-- Data Rows -->
+    <tr><td>2021</td><td>1</td><td>1,900</td><td>8,650</td><td>9,000</td><td>7,780</td></tr>
+    <tr><td></td><td>2</td><td>2,230</td><td>8,650</td><td>8,500</td><td>8,670</td></tr>
+    <tr><td></td><td>3</td><td>4,000</td><td>8,650</td><td>9,900</td><td>9,870</td></tr>
+    <tr><td>2022</td><td>1</td><td>7,780</td><td>8,650</td><td>9,800</td><td>9,900</td></tr>
+    <tr><td></td><td>2</td><td>8,670</td><td>8,650</td><td>8,780</td><td>9,000</td></tr>
+    <tr><td></td><td>3</td><td>9,870</td><td>8,650</td><td>9,870</td><td>9,500</td></tr>
+    <tr><td rowspan="2">2013</td><td>4</td><td>9,900</td><td>8,650</td><td>9,900</td><td>9,800</td></tr>
+    <tr style="text-align:center;"><th colspan="6">****</th></tr>
+</table>
+
+<p style="text-align:center;">Registration Number: 23BCE1162 </p>
+
+</body>
+</html>

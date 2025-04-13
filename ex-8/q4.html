@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Labour Cost Calculation</title>
+</head>
+<body>
+    <script>
+        const ratePerHour = 45;
+
+        let hoursWorked = parseFloat(prompt("Enter hours worked:"));
+        let materialCost = parseFloat(prompt("Enter cost of materials:"));
+
+        let labourCost = ratePerHour * hoursWorked;
+        let totalCharge = labourCost + materialCost;
+
+        alert(`Labour cost: Rs.${labourCost}`);
+        alert(`Total charge: Rs.${totalCharge}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to my page – [Your Registration Number]</title>
+  <style>
+    body {
+      background-image: url('your-image.jpg'); /* Replace with actual image path */
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+    .name {
+      color: blue;
+      font-family: Verdana;
+    }
+    .alphabet span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .first {
+      font-weight: bold;
+    }
+    .middle {
+      font-style: italic;
+    }
+    .last {
+      text-decoration: underline;
+    }
+    .ambition {
+      background-color: yellow;
+    }
+    .hobbies {
+      font-style: italic;
+      font-weight: bold;
+    }
+    .bottom-btn {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .passport {
+      float: right;
+      width: 100px;
+      height: 130px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="name">Your Name</h1>
+
+  <div class="alphabet">
+    <span style="font-size: 12px; color: red;">A</span>
+    <span style="font-size: 14px; color: green;">B</span>
+    <span style="font-size: 16px; color: blue;">C</span>
+    <span style="font-size: 18px; color: orange;">D</span>
+    <span style="font-size: 20px; color: purple;">E</span>
+    <span style="font-size: 22px; color: brown;">F</span>
+  </div>
+
+  <p>
+    <span class="first">YourFirst</span> 
+    <span class="middle">MiddleName</span> 
+    <span class="last">LastName</span>
+  </p>
+
+  <div>
+    <p><span class="ambition">I aim to become a software engineer contributing to AI development.</span></p>
+    <p class="hobbies">My hobbies include coding, music, and reading.</p>
+  </div>
+
+  <!-- This is a comment and should not appear on the webpage -->
+
+  <h3>Equations:</h3>
+  <ul>
+    <li>(a-b)² = a² - 2ab + b²</li>
+    <li>2H₂ + O₂ = 2H₂O</li>
+  </ul>
+
+  <h3>C Program:</h3>
+  <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int acc = 123456;
+    float balance = 2500.75;
+    printf("Account Number: %d\n", acc);
+    printf("Balance: ₹%.2f", balance);
+    return 0;
+}
+  </pre>
+
+  <marquee behavior="scroll" direction="left">Roll Number: 123456789</marquee>
+
+  <img src="passport.jpg" alt="Passport Size Photo" class="passport">
+
+  <div>
+    <p>This is paragraph one inside a div tag.</p>
+    <p>This is paragraph two inside the same div.</p>
+  </div>
+
+  <button class="bottom-btn" onclick="scrollToTop()">Go to Top</button>
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+  <p><a href="mailto:someone@example.com">Email Me</a></p>
+
+  <p><acronym title="World Health Organization">WHO</acronym></p>
+
+  <label>Disk Usage: <meter value="0.6">60%</meter></label><br>
+  <label>Progress: <progress value="70" max="100">70%</progress></label><br>
+
+  <details>
+    <summary>Click to view summary</summary>
+    This is a summary of my webpage contents.
+  </details>
+
+  <p><a href="q2.html">Go to Greeting Page</a></p>
+
+</body>
+</html>

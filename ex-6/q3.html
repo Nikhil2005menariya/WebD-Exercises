@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Singer Photo Example</title>
+    <style>
+      
+        .myphoto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Makes the image circular */
+            border: 2px solid blue; /* Solid border with favorite color */
+            animation: colorChange 5s infinite; /* Animation effect */
+        }
+
+        @keyframes colorChange {
+            0% { border-color: red; }
+            50% { border-color: green; }
+            100% { border-color: blue; }
+        }
+
+        .title {
+            font-size: 120%; /* Font size in percentage */
+            color: purple;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="main">
+    <img src="singer.jpg" alt="Singer Photo" class="myphoto">
+    <p class="title">Fig. 1. Photo of Favorite Singer</p>
+</body>
+</html>

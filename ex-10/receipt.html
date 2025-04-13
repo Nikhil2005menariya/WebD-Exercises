@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Receipt</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: Arial;
+      padding: 20px;
+    }
+    .receipt {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      margin: auto;
+    }
+    .receipt h2 {
+      text-align: center;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+    }
+    .total {
+      font-weight: bold;
+      margin-top: 10px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="receipt">
+    <h2>Receipt</h2>
+    <div id="customerInfo"></div>
+    <h3>Items</h3>
+    <div id="items"></div>
+    <div class="total" id="total"></div>
+  </div>
+
+  <script>
+    const orderData = JSON.parse(localStorage.getItem("orderData"));
+
+    document.getElementById("customerInfo").innerHTML = `
+      <p><strong>Name:</strong> ${orderData.name}</p>
+      <p><strong>Phone:</strong> ${orderData.phone}</p>
+      <p><strong>Email:</strong> ${orderData.email}</p>
+    `;
+
+    let itemsHTML = "";
+    let total = 0;
+
+    orderData.products.forEach(product => {
+      const itemTotal = product.qty * product.price;
+      total += itemTotal;
+      itemsHTML += `
+        <div class="item">
+          <span>${product.name} (${product.qty} kg)</span>
+          <span>$${itemTotal.toFixed(2)}</span>
+        </div>
+      `;
+    });
+
+    document.getElementById("items").innerHTML = itemsHTML;
+    document.getElementById("total").innerHTML = `Total: $${total.toFixed(2)}`;
+  </script>
+</body>
+</html>

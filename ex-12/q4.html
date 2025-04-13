@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plotly Charts</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="barChart" class="chart-container"></div>
+  <div id="lineChart" class="chart-container"></div>
+  <div id="pieChart" class="chart-container"></div>
+  <div id="donutChart" class="chart-container"></div>
+
+  <script>
+    // Sample data
+    const labels = ['A', 'B', 'C', 'D'];
+    const values = [10, 15, 13, 17];
+
+    // Bar Chart
+    Plotly.newPlot('barChart', [{
+      x: labels,
+      y: values,
+      type: 'bar',
+      marker: { color: ['red', 'blue', 'green', 'orange'] }
+    }], {
+      title: 'Bar Chart Example',
+      xaxis: { title: 'Category' },
+      yaxis: { title: 'Value' },
+    });
+
+    // Line Chart
+    Plotly.newPlot('lineChart', [{
+      x: labels,
+      y: values,
+      type: 'scatter',
+      mode: 'lines+markers',
+      line: { color: 'purple' }
+    }], {
+      title: 'Line Chart Example',
+      xaxis: { title: 'Category' },
+      yaxis: { title: 'Value' },
+    });
+
+    // Pie Chart
+    Plotly.newPlot('pieChart', [{
+      labels: labels,
+      values: values,
+      type: 'pie',
+      marker: { colors: ['pink', 'lightblue', 'lightgreen', 'lightyellow'] }
+    }], {
+      title: 'Pie Chart Example',
+      showlegend: true
+    });
+
+    // Donut Chart
+    Plotly.newPlot('donutChart', [{
+      labels: labels,
+      values: values,
+      type: 'pie',
+      hole: 0.4,
+      marker: { colors: ['cyan', 'magenta', 'lime', 'gold'] }
+    }], {
+      title: 'Donut Chart Example',
+      showlegend: true
+    });
+  </script>
+
+</body>
+</html>

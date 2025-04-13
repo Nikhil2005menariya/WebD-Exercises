@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Tasks - Stopwatch, DOB, Char Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 30px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>JavaScript Tasks</h2>
+
+<!-- (i) Stopwatch -->
+<div class="section">
+  <h3>1. Stopwatch</h3>
+  <p id="stopwatch">00:00:00</p>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="reset">Reset</button>
+</div>
+
+<!-- (ii) DOB & Age Calculation -->
+<div class="section">
+  <h3>2. Age Calculator</h3>
+  <label>Enter Date of Birth:</label><br>
+  <input type="date" id="dob">
+  <p id="ageResult"></p>
+</div>
+
+<!-- (iii) Character Counter -->
+<div class="section">
+  <h3>3. Character Counter</h3>
+  <textarea id="textArea" placeholder="Type something..."></textarea>
+  <p>Characters: <span id="charCount">0</span></p>
+</div>
+
+<script>
+  // (i) Stopwatch
+  let timer;
+  let seconds = 0;
+  let running = false;
+
+  function formatTime(sec) {
+    let hrs = Math.floor(sec / 3600);
+    let mins = Math.floor((sec % 3600) / 60);
+    let secs = sec % 60;
+    return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  }
+
+  document.getElementById("start").addEventListener("click", () => {
+    if (!running) {
+      running = true;
+      timer = setInterval(() => {
+        seconds++;
+        document.getElementById("stopwatch").textContent = formatTime(seconds);
+      }, 1000);
+    }
+  });
+
+  document.getElementById("stop").addEventListener("click", () => {
+    running = false;
+    clearInterval(timer);
+  });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    running = false;
+    clearInterval(timer);
+    seconds = 0;
+    document.getElementById("stopwatch").textContent = "00:00:00";
+  });
+
+  // (ii) Age Calculator on mouseover
+  const dobInput = document.getElementById("dob");
+  const ageResult = document.getElementById("ageResult");
+
+  dobInput.addEventListener("mouseover", () => {
+    const dob = new Date(dobInput.value);
+    if (!isNaN(dob.getTime())) {
+      const today = new Date();
+      let age = today.getFullYear() - dob.getFullYear();
+      const m = today.getMonth() - dob.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+        age--;
+      }
+      ageResult.textContent = `Your age is: ${age}`;
+    } else {
+      ageResult.textContent = "Please enter a valid date.";
+    }
+  });
+
+  // (iii) Character Counter
+  const textArea = document.getElementById("textArea");
+  const charCount = document.getElementById("charCount");
+
+  textArea.addEventListener("input", () => {
+    charCount.textContent = textArea.value.length;
+  });
+</script>
+
+</body>
+</html>

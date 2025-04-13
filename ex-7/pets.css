@@ -1,0 +1,40 @@
+/* Rainbow Effect for Heading */
+.rainbow {
+    font-size: 40px;
+    text-align: center;
+    animation: rainbowEffect 5s infinite;
+}
+
+@keyframes rainbowEffect {
+    0% { color: red; }
+    20% { color: orange; }
+    40% { color: yellow; }
+    60% { color: green; }
+    80% { color: blue; }
+    100% { color: violet; }
+}
+
+/* Multi-column Description Styling */
+.description {
+    column-count: 2; /* Multi-column layout */
+    column-gap: 20px;
+    font-size: 16px;
+    line-height: 30pt; /* Line height of descriptions */
+}
+
+/* Background Image Styling */
+.background {
+    background-image: url('pets.jpg'); /* Replace with actual image URL */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+/* SVG Ball Styling */
+.dog-ball {
+    margin-top: 20px;
+}
+
+.dog-ball circle:hover {
+    transform: scale(1.1); /* Slight scaling effect on hover */
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Z-Index Manipulation</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 150px;
+      left: 150px;
+      border: 2px solid #000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    #box1 { background: red; z-index: 1; }
+    #box2 { background: green; top: 180px; left: 180px; z-index: 2; }
+    #box3 { background: blue; top: 210px; left: 210px; z-index: 3; }
+  </style>
+</head>
+<body>
+
+  <div id="box1" class="box">Box 1</div>
+  <div id="box2" class="box">Box 2</div>
+  <div id="box3" class="box">Box 3</div>
+
+  <div style="margin-top: 350px; text-align: center;">
+    <h3>Adjust Z-Index</h3>
+    <select id="targetBox">
+      <option value="box1">Box 1</option>
+      <option value="box2">Box 2</option>
+      <option value="box3">Box 3</option>
+    </select>
+    <input type="number" id="zIndexInput" placeholder="Enter z-index" />
+    <button onclick="changeZIndex()">Set z-index</button>
+
+    <div id="zIndexDisplay" style="margin-top: 20px;"></div>
+  </div>
+
+  <script>
+    function changeZIndex() {
+      const boxId = document.getElementById('targetBox').value;
+      const zValue = parseInt(document.getElementById('zIndexInput').value);
+      const box = document.getElementById(boxId);
+
+      if (!isNaN(zValue)) {
+        box.style.zIndex = zValue;
+        displayZIndexes();
+      }
+    }
+
+    function displayZIndexes() {
+      const display = document.getElementById('zIndexDisplay');
+      display.innerHTML = `
+        <p>Box 1 z-index: ${getComputedStyle(document.getElementById('box1')).zIndex}</p>
+        <p>Box 2 z-index: ${getComputedStyle(document.getElementById('box2')).zIndex}</p>
+        <p>Box 3 z-index: ${getComputedStyle(document.getElementById('box3')).zIndex}</p>
+      `;
+    }
+
+    displayZIndexes();
+  </script>
+
+</body>
+</html>
